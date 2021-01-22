@@ -1,4 +1,4 @@
-FROM ubi8/ubi
+FROM registry.access.redhat.com/ubi8/ubi
 
 ENV SYSTEM https://github.com/mettke/ssh-key-authority.git
 ENV TAG v1.0.0

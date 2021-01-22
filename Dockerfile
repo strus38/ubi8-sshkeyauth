@@ -8,8 +8,8 @@ ADD healthcheck.sh /healthcheck.sh
 ADD cron /var/spool/cron/crontabs/root
 
 RUN mkdir -p /var/log/keys/ /var/run/keys /run/php/ /ska/ && \
-    adduser --system --disabled-password keys-sync && \
-    apk add openssh \ 
+    adduser --system keys-sync && \
+    dnf install openssh \ 
             php7 \
             php7-fpm \
             php7-json \
@@ -28,7 +28,7 @@ RUN mkdir -p /var/log/keys/ /var/run/keys /run/php/ /ska/ && \
     chmod +x /entrypoint.sh /healthcheck.sh && \
     chown keys-sync:nogroup /var/run/keys && \
     ln -sf /dev/stderr /var/log/php7/error.log
-RUN apk add git && \
+RUN dnf install git && \
     git clone ${SYSTEM} /ska && \
     git -C /ska checkout ${TAG} && \
     apk del git && \

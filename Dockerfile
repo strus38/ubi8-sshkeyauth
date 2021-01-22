@@ -22,7 +22,6 @@ RUN mkdir -p /var/log/keys/ /var/run/keys /run/php/ /ska/ && \
             php7-posix \
             php7-xml \
             rsync \
-            ssmtp \
             sudo && \
     sed -i -e '/listen =/ s/= .*/= 9000/' /etc/php7/php-fpm.d/www.conf && \
     sed -i -e '/user =/ s/.*/user = keys-sync/' /etc/php7/php-fpm.d/www.conf && \

@@ -7,6 +7,8 @@ ADD entrypoint.sh /entrypoint.sh
 ADD healthcheck.sh /healthcheck.sh
 ADD cron /var/spool/cron/crontabs/root
 
+USER root
+
 RUN mkdir -p /var/log/keys/ /var/run/keys /run/php/ /ska/ && \
     adduser --system keys-sync && \
     dnf install openssh \ 
